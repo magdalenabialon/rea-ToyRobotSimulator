@@ -28,8 +28,13 @@ class TestCommands < Minitest::Test
     assert_equal 4 , @@robot.move
   end
 
-  def test_MOVE_command_when_could_fall_from_board
+  def test_MOVE_command_when_could_fall_from_board_0x0
     @@robot.place(0,0,'SOUTH')
+    assert_equal 'The toy robot must not fall off the table during movement' , @@robot.move
+  end
+
+  def test_MOVE_command_when_could_fall_from_board_5x5
+    @@robot.place(5,5,'EAST')
     assert_equal 'The toy robot must not fall off the table during movement' , @@robot.move
   end
   

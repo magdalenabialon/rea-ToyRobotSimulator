@@ -22,13 +22,13 @@ class Robot
   def move
     case @face
     when 'NORTH'
-      @y += 1
+      @y <= @board_size_Y - 1 ? @y += 1 : 'The toy robot must not fall off the table during movement'
     when 'SOUTH'
-      @y -= 1
+      @y >= 1 ? @y -= 1 : 'The toy robot must not fall off the table during movement'
     when 'WEST'
-      @x -= 1
+      @x >= 1 ? @x -= 1 : 'The toy robot must not fall off the table during movement'
     when 'EAST'
-      @x += 1
+      @x <= @board_size_X - 1 ? @x += 1 : 'The toy robot must not fall off the table during movement'
     end
 
   end
@@ -53,10 +53,12 @@ end
 
 
 
-
 # robot = Robot.new
 # p robot.place(0,0,'NORTH')
 # robot.place(10,0,'NORTH')
 # robot.place(1,1,'sth')
 # robot.place(1,1,'EAST')
+# robot.place(0,0,'SOUTH')
+# robot.place(5,5,'EAST')
 # p robot.move
+
