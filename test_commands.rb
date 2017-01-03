@@ -57,3 +57,14 @@ class TestCommandsWhenRobotNotPlaced < Minitest::Test
   end
 
 end
+
+
+class TestCommandsWhenCustomizedBoard < Minitest::Test
+
+  @@robot = Robot.new
+
+  def test_MOVE_command_when_customized_board
+    assert_equal [8,7,'NORTH'] , @@robot.place(8,7,'NORTH')
+  end
+
+end
