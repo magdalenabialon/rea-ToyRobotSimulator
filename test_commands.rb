@@ -7,7 +7,7 @@ class TestCommands < Minitest::Test
   @@robot = Robot.new
 
   def test_PLACE_command_returns_simple_output
-    assert_equal [1,1,'EAST'] , @@robot.place(1,1,'EAST')
+    assert_equal 'EAST' , @@robot.place(1,1,'EAST')
   end
 
   def test_PLACE_command_not_valid_X_Y

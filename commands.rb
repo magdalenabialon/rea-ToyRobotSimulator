@@ -13,10 +13,24 @@ class Robot
       @x = x
       @y = y
       @face = face
-      [@x,@y,@face]
+      # [@x,@y,@face]
     else
       p print_fail_board_range
     end
+  end
+
+  def move
+    case @face
+    when 'NORTH'
+      @y += 1
+    when 'SOUTH'
+      @y -= 1
+    when 'WEST'
+      @x -= 1
+    when 'EAST'
+      @x += 1
+    end
+
   end
 
 
@@ -40,7 +54,9 @@ end
 
 
 
-robot = Robot.new
-robot.place(0,0,'NORTH')
-robot.place(10,0,'NORTH')
-robot.place(1,0,'sth')
+# robot = Robot.new
+# p robot.place(0,0,'NORTH')
+# robot.place(10,0,'NORTH')
+# robot.place(1,1,'sth')
+# robot.place(1,1,'EAST')
+# p robot.move
