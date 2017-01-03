@@ -43,8 +43,17 @@ class TestCommands < Minitest::Test
     assert_equal 2 , @@robot.move
   end
 
+  
+end
+
+
+
+class TestCommandsWhenRobotNotPlaced < Minitest::Test
+
+  @@robot = Robot.new
+
   def test_MOVE_command_when_notPLACEd
     assert_equal 'First you need to place the Robot on the board! :)', @@robot.move
   end
-  
+
 end
