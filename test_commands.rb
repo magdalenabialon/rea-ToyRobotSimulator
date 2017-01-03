@@ -61,10 +61,14 @@ end
 
 class TestCommandsWhenCustomizedBoard < Minitest::Test
 
-  @@robot = Robot.new
+  @@robot = Robot.new(9,9)
 
   def test_MOVE_command_when_customized_board
-    assert_equal [8,7,'NORTH'] , @@robot.place(8,7,'NORTH')
+    assert_equal 'NORTH' , @@robot.place(8,7,'NORTH')
+  end
+
+  def test_PLACE_command_when_not_valid_X_Y
+    assert_equal "X and Y must be in 0 to 9 (for X) and 9 (for Y) range and face must be north south east or west" , @@robot.place(10,-1,'NORTH')
   end
 
 end
