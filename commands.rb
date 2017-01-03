@@ -22,13 +22,13 @@ class Robot
   def move
     case @face
     when 'NORTH'
-      @y <= @board_size_Y - 1 ? @y += 1 : 'The toy robot must not fall off the table during movement'
+      @y <= @board_size_Y - 1 ? @y += 1 : print_fail_message_if_could_fall_out
     when 'SOUTH'
-      @y >= 1 ? @y -= 1 : 'The toy robot must not fall off the table during movement'
+      @y >= 1 ? @y -= 1 : print_fail_message_if_could_fall_out
     when 'WEST'
-      @x >= 1 ? @x -= 1 : 'The toy robot must not fall off the table during movement'
+      @x >= 1 ? @x -= 1 : print_fail_message_if_could_fall_out
     when 'EAST'
-      @x <= @board_size_X - 1 ? @x += 1 : 'The toy robot must not fall off the table during movement'
+      @x <= @board_size_X - 1 ? @x += 1 : print_fail_message_if_could_fall_out
     end
 
   end
@@ -44,6 +44,10 @@ class Robot
 
   def print_fail_board_range
     "X and Y must be in 0 to #{@board_size_X} (for X) and #{@board_size_Y} (for Y) range and face must be north south east or west"
+  end
+
+  def print_fail_message_if_could_fall_out
+    p 'The toy robot must not fall off the table during movement'
   end
 
 end
