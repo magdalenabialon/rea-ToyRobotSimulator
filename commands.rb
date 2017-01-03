@@ -12,7 +12,7 @@ class Robot
     if  check_if_on_board(x,y) && check_valid_face(face)
       @x = x
       @y = y
-      @face = face
+      @face = face.gsub(/\s+/ , '').upcase
       # [@x,@y,@face]
     else
       p print_fail_board_range
@@ -39,7 +39,9 @@ class Robot
   end
 
   def check_valid_face(face)
-    ['NORTH','SOUTH','EAST','WEST'].include?(face)
+    face = face.upcase
+    face =~ /\s*north\s*/i || face =~ /\s*south\s*/i || face =~ /\s*east\s*/i || face =~ /\s*west\s*/i
+    # ['NORTH','SOUTH','EAST','WEST'].include?(face)
   end
 
   def print_fail_board_range
@@ -58,11 +60,14 @@ end
 
 
 # robot = Robot.new
+
 # p robot.place(0,0,'NORTH')
 # robot.place(10,0,'NORTH')
 # robot.place(1,1,'sth')
 # robot.place(1,1,'EAST')
 # robot.place(0,0,'SOUTH')
 # robot.place(5,5,'EAST')
+# robot.place(4,4,' east ')
+
 # p robot.move
 
