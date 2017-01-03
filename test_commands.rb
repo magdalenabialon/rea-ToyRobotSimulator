@@ -22,5 +22,15 @@ class TestCommands < Minitest::Test
     @@robot.place(1,1,'EAST')
     assert_equal 2 , @@robot.move
   end
+
+  def test_MOVE_command_different_placement
+    @@robot.place(3,3,'EAST')
+    assert_equal 4 , @@robot.move
+  end
+
+  def test_MOVE_command_when_could_fall_from_board
+    @@robot.place(0,0,'SOUTH')
+    assert_equal 'The toy robot must not fall off the table during movement' , @@robot.move
+  end
   
 end
