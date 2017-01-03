@@ -13,5 +13,10 @@ class TestCommands < Minitest::Test
     robot = Robot.new
     assert_equal "X and Y must be in 0 to 5 (for X) and 5 (for Y) range and face must be north south east or west", robot.place(10,-1,'NORTH')
   end
+
+  def test_PLACE_command_not_valid_FACE
+    robot = Robot.new
+    assert_equal "X and Y must be in 0 to 5 (for X) and 5 (for Y) range and face must be north south east or west", robot.place(0,1,'NAH')
+  end
   
 end
