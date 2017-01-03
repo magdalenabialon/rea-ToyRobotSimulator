@@ -31,7 +31,11 @@ class Robot
     when 'EAST'
       @x <= @board_size_X - 1 ? @x += 1 : print_fail_message_if_could_fall_out
     end
+  end
 
+  def report
+    return 'First you need to place the Robot on the board! :)' unless @face
+    p [@x,@y,@face]
   end
 
 
