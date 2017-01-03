@@ -2,7 +2,7 @@
 class Robot
   
   def place(x,y,face)
-    if (0..5) === x && (0..5) === y
+    if (0..5) === x && (0..5) === y && ['NORTH','SOUTH','EAST','WEST'].include?(face)
       @x = x
       @y = y
       @face = face
@@ -18,3 +18,4 @@ end
 robot = Robot.new
 # p robot.place(0,0,'NORTH')
 # p robot.place(10,0,'NORTH')
+# p robot.place(1,0,'sth')
