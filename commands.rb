@@ -9,14 +9,27 @@ class Robot
   end
   
   def place(x,y,face)
-    if (0..5) === x && (0..5) === y && ['NORTH','SOUTH','EAST','WEST'].include?(face)
+    if  check_if_on_board(x,y) && check_valid_face(face)
       @x = x
       @y = y
       @face = face
       [@x,@y,@face]
     else
-      "X and Y must be in 0 to #{@board_size_X} (for X) and #{@board_size_Y} (for Y) range and face must be north south east or west"
+      p print_fail_board_range
     end
+  end
+
+
+  def check_if_on_board(x,y)
+    (0..@board_size_X) === x && (0..@board_size_Y) === y
+  end
+
+  def check_valid_face(face)
+    ['NORTH','SOUTH','EAST','WEST'].include?(face)
+  end
+
+  def print_fail_board_range
+    "X and Y must be in 0 to #{@board_size_X} (for X) and #{@board_size_Y} (for Y) range and face must be north south east or west"
   end
 
 end
@@ -27,7 +40,7 @@ end
 
 
 
-# robot = Robot.new
-# p robot.place(0,0,'NORTH')
-# p robot.place(10,0,'NORTH')
-# p robot.place(1,0,'sth')
+robot = Robot.new
+robot.place(0,0,'NORTH')
+robot.place(10,0,'NORTH')
+robot.place(1,0,'sth')
