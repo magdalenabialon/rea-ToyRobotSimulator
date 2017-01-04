@@ -28,19 +28,13 @@ class TestExecuteUserCommands < Minitest::Test
     assert_equal 'SOMETHING' , ExecuteUserCommands.new(robot,user_input).get_user_input
   end
 
-  # def test_PERFORM_COMMANDS_method
-  #   robot = Robot.new
-  #   user_input = DummyUserInput.new('PLACE')
-  #   assert_equal ?? , ExecuteUserCommands.new(robot,user_input).perform_commands
-  # end
-
   def test_GREET_method
     robot = Robot.new
     user_input = DummyUserInput.new('PLACE')
     assert_equal 'Please start with place command' , ExecuteUserCommands.new(robot,user_input).greet
   end
 
-  def test_PLACE_method    #TODO ADD TEST PLACE METHOD FOR CUSTOMIZED BOARD
+  def test_PLACE_method                              #TODO ADD TEST PLACE METHOD FOR CUSTOMIZED BOARD
     robot = Robot.new
     user_input = DummyUserInput.new('PLACE')
     assert_equal 'SOUTH' , ExecuteUserCommands.new(robot,user_input).place
@@ -49,7 +43,7 @@ class TestExecuteUserCommands < Minitest::Test
   def test_REPORT_method_when_PLACEd
     robot = Robot.new
     user_input = DummyUserInput.new('PLACE')
-    ExecuteUserCommands.new(robot,user_input).place
+    ExecuteUserCommands.new(robot,user_input).place   # 2 2 south
     assert_equal [2,2,'SOUTH'] , ExecuteUserCommands.new(robot,user_input).report
   end
 
@@ -62,7 +56,7 @@ class TestExecuteUserCommands < Minitest::Test
   def test_MOVE_method_when_PLACEd
     robot = Robot.new
     user_input = DummyUserInput.new('something')
-    ExecuteUserCommands.new(robot,user_input).place
+    ExecuteUserCommands.new(robot,user_input).place   # 2 2 south
     assert_equal 1 , ExecuteUserCommands.new(robot,user_input).move
   end
 
@@ -75,16 +69,31 @@ class TestExecuteUserCommands < Minitest::Test
   def test_LEFT_method_when_PLACEd
     robot = Robot.new
     user_input = DummyUserInput.new('sth')
-    ExecuteUserCommands.new(robot,user_input).place
+    ExecuteUserCommands.new(robot,user_input).place   # 2 2 south
     assert_equal 'EAST' , ExecuteUserCommands.new(robot,user_input).left
   end
 
   def test_RIGHT_method_when_PLACEd
     robot = Robot.new
     user_input = DummyUserInput.new('sth')
-    ExecuteUserCommands.new(robot,user_input).place
+    ExecuteUserCommands.new(robot,user_input).place   # 2 2 south
     assert_equal 'WEST' , ExecuteUserCommands.new(robot,user_input).right
   end
+
+  def test_when_multiple_methods_were_called
+    robot = Robot.new
+    user_input = DummyUserInput.new('sth')
+    ExecuteUserCommands.new(robot,user_input).place   # 2 2 south
+    ExecuteUserCommands.new(robot,user_input).right   
+    ExecuteUserCommands.new(robot,user_input).move    
+    assert_equal [1,2,'WEST'] , ExecuteUserCommands.new(robot,user_input).report
+  end
+
+  # def test_PERFORM_COMMANDS_method
+  #   robot = Robot.new
+  #   user_input = DummyUserInput.new('PLACE')
+  #   assert_equal ?? , ExecuteUserCommands.new(robot,user_input).perform_commands
+  # end
 
 end
 
