@@ -14,7 +14,7 @@ end
 
 class UserInput
   def save_command
-    gets.chomp.gsub(/\s+/ , '').upcase
+    gets.chomp.upcase
   end
 end
 

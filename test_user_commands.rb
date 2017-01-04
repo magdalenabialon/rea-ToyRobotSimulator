@@ -20,8 +20,8 @@ class TestExecuteUserCommands < Minitest::Test
     assert_equal 'PLACE' , ExecuteUserCommands.new(user_input).get_user_input
   end
 
-  def test_execute_user_commands_first_simple_test
-    user_input = DummyUserInput.new('something ')
+  def test_execute_user_commands_simple_test_for_random_input
+    user_input = DummyUserInput.new('something')
     assert_equal 'SOMETHING' , ExecuteUserCommands.new(user_input).get_user_input
   end
 
