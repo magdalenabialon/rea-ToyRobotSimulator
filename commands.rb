@@ -33,11 +33,26 @@ class Robot
     end
   end
 
+  def left
+    return print_fail_message_when_not_placed unless @face
+    case @face
+    when 'NORTH'
+      @face = 'WEST'
+    when 'SOUTH'
+      @face = 'EAST'
+    when 'WEST'
+      @face = 'SOUTH'
+    when 'EAST'
+      @face = 'NORTH'
+    end
+  end
+
   def report
-    return 'First you need to place the Robot on the board! :)' unless @face
+    return print_fail_message_when_not_placed unless @face
     p [@x,@y,@face]
   end
 
+  private
 
   def check_if_on_board(x,y)
     (0..@board_size_X) === x && (0..@board_size_Y) === y
@@ -57,6 +72,10 @@ class Robot
     p 'The toy robot must not fall off the table during movement'
   end
 
+  def print_fail_message_when_not_placed
+    'First you need to place the Robot on the board! :)'
+  end
+
 end
 
 
@@ -64,15 +83,17 @@ end
 
 
 
-# robot = Robot.new
+robot = Robot.new
 
 # p robot.place(0,0,'NORTH')
 # robot.place(10,0,'NORTH')
 # robot.place(1,1,'sth')
 # robot.place(1,1,'EAST')
-# robot.place(0,0,'SOUTH')
+robot.place(0,0,'SOUTH')
 # robot.place(5,5,'EAST')
 # robot.place(4,4,' east ')
-
 # p robot.move
+
+# p robot.left
+p robot.print_fail_message_when_not_placed
 

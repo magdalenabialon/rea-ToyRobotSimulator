@@ -43,20 +43,20 @@ class TestCommands < Minitest::Test
     assert_equal 2 , @@robot.move
   end
 
-  def test_REPORT_method
+  def test_REPORT_command
     @@robot.place(3,3,'SOUTH')
     assert_equal [3,3,'SOUTH'] , @@robot.report
   end
 
-  def test_REPORT_method_when_movement_not_possible
+  def test_REPORT_command_when_movement_not_possible
     @@robot.place(0,0,'SOUTH')
     @@robot.move
     assert_equal [0,0,'SOUTH'] , @@robot.report 
   end
 
   def test_LEFT_command
-    @@robot.place(1,1,'NORTH')
-    assert_equal 'WEST' , @@robot.left
+    @@robot.place(1,1,'WEST')
+    assert_equal 'SOUTH' , @@robot.left
   end
 
 end
