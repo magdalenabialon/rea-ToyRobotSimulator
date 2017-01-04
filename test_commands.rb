@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'commands'
+require_relative 'robot_commands'
 
 
 class TestCommands < Minitest::Test
