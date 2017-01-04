@@ -45,4 +45,11 @@ class TestExecuteUserCommands < Minitest::Test
     assert_equal 'SOUTH' , ExecuteUserCommands.new(robot,user_input).place
   end
 
+  def test_REPORT_method
+    robot = Robot.new
+    user_input = DummyUserInput.new('PLACE')
+    command = ExecuteUserCommands.new(robot,user_input).place
+    assert_equal [2,2,'SOUTH'] , command.report
+  end
+
 end

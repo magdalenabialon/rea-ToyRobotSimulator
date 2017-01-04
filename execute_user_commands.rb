@@ -24,14 +24,22 @@ class ExecuteUserCommands
   def get_user_input
     @user_input.save_command
   end
-
+  
+  def place
+    p 'Please enter arguments x y face'
+    arguments = gets.chomp.upcase.split(' ')
+    x = arguments[0].to_i
+    y = arguments[1].to_i
+    face = arguments[2]
+    @toy.place(x,y,face)
+  end
 
 end
 
 
 class UserInput
   def save_command
-    @command = gets.chomp.upcase
+    @command = gets.chomp.upcase   #shouldn't be deleting the space here as place arguments are provided with space - need to extract each of them
   end
 end
 
