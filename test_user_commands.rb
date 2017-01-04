@@ -3,6 +3,16 @@ require_relative 'robot_commands'
 require_relative 'execute_user_commands'
 
 
+class ExecuteUserCommands
+
+  # Not really sure if can overwrite method (stub?) for testing like that ? 
+  def place
+    @toy.place(2,2,'SOUTH')
+  end
+
+end
+
+
 class TestExecuteUserCommands < Minitest::Test
 
   class DummyUserInput
@@ -87,6 +97,12 @@ class TestExecuteUserCommands < Minitest::Test
     ExecuteUserCommands.new(robot,user_input).right   
     ExecuteUserCommands.new(robot,user_input).move    
     assert_equal [1,2,'WEST'] , ExecuteUserCommands.new(robot,user_input).report
+  end
+
+  def test_PERFORM_COMMANDS_method_to_EXIT
+    robot = Robot.new
+    user_input = DummyUserInput.new('exit')
+    assert_equal nil , ExecuteUserCommands.new(robot,user_input).perform_commands
   end
 
   # def test_PERFORM_COMMANDS_method

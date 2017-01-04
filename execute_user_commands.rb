@@ -11,8 +11,12 @@ class ExecuteUserCommands
 
   def perform_commands
     greet
-    get_user_input
-    # @command = gets.chomp.upcase
+    @command = get_user_input
+
+    loop do
+      break if @command =~ /exit/i
+    end
+
     # =>>>> need to figure out loop do that will take user input and save it :) 
     # =>>>> also need to test with DIFFERENT SIZE OF THE BOARD
   end
@@ -21,6 +25,7 @@ class ExecuteUserCommands
 
   def greet
     p 'Welcome to Toy Robot Simulator'
+    p 'To exit simply type exit :)'
     p 'Please start with place command'
   end
 
@@ -56,6 +61,7 @@ class ExecuteUserCommands
 end
 
 
+
 class UserInput
   def save_command
     @command = gets.chomp.upcase   #shouldn't be deleting the space here as place arguments are provided with space - need to extract each of them
@@ -69,11 +75,14 @@ end
 
 
 # SOME TEST DATA/COMMANDS 
+# need to comment out  * private * to test them out 
 # to run in bash: ruby execute_user_commands.rb
+
 
 # robot = Robot.new
 # user_input = UserInput.new
 # command = ExecuteUserCommands.new(robot,user_input)
+
 
 # # command.greet
 # # p command.get_user_input
