@@ -7,7 +7,7 @@ class TestExecuteUserCommands < Minitest::Test
 
   class DummyUserInput
     def initialize(user_input)
-      @user_input = user_input
+      @user_input = user_input.gsub(/\s+/ , '').upcase
     end
 
     def save_command
@@ -19,4 +19,10 @@ class TestExecuteUserCommands < Minitest::Test
     user_input = DummyUserInput.new('PLACE')
     assert_equal 'PLACE' , ExecuteUserCommands.new(user_input).get_user_input
   end
+
+  def test_execute_user_commands_first_simple_test
+    user_input = DummyUserInput.new('something ')
+    assert_equal 'SOMETHING' , ExecuteUserCommands.new(user_input).get_user_input
+  end
+
 end

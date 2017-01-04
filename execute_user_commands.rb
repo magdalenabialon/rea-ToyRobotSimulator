@@ -14,11 +14,11 @@ end
 
 class UserInput
   def save_command
-    gets.chomp.upcase
+    gets.chomp.gsub(/\s+/ , '').upcase
   end
 end
 
 
-# user_input = UserInput.new
-# command = ExecuteUserCommands.new(user_input)
-# p command.get_user_input
+user_input = UserInput.new
+command = ExecuteUserCommands.new(user_input)
+p command.get_user_input
