@@ -95,8 +95,11 @@ end
 
 
 
-# robot = Robot.new
 
+# SOME TEST DATA/COMMANDS 
+# to run in bash: ruby robot_commands.rb
+
+# robot = Robot.new
 # p robot.place(0,0,'NORTH')
 # robot.place(10,0,'NORTH')
 # robot.place(1,1,'sth')
@@ -105,7 +108,8 @@ end
 # robot.place(5,5,'EAST')
 # robot.place(4,4,' east ')
 # p robot.move
-
+# p robot.right
 # p robot.left
+# p robot.report
 # p robot.print_fail_message_when_not_placed
 

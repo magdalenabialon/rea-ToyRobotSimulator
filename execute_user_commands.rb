@@ -11,7 +11,10 @@ class ExecuteUserCommands
 
   def perform_commands
     greet
-    @command = gets.chomp.upcase
+    get_user_input
+    # @command = gets.chomp.upcase
+    # =>>>> need to figure out loop do that will take user input and save it :) 
+    # =>>>> also need to test with DIFFERENT SIZE OF THE BOARD
   end
 
   # private
@@ -48,7 +51,20 @@ class UserInput
 end
 
 
+
+
+
+
+
+# SOME TEST DATA/COMMANDS 
+# to run in bash: ruby execute_user_commands.rb
+
 # robot = Robot.new
 # user_input = UserInput.new
 # command = ExecuteUserCommands.new(robot,user_input)
+
+# command.greet
+# p command.get_user_input
+# command.place
+# command.report
 # command.perform_commands

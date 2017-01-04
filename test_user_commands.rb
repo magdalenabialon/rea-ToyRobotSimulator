@@ -39,17 +39,29 @@ class TestExecuteUserCommands < Minitest::Test
     assert_equal 'Please start with place command' , ExecuteUserCommands.new(robot,user_input).greet
   end
 
-  def test_PLACE_method
+  def test_PLACE_method    #TODO ADD TEST PLACE METHOD FOR CUSTOMIZED BOARD
     robot = Robot.new
     user_input = DummyUserInput.new('PLACE')
     assert_equal 'SOUTH' , ExecuteUserCommands.new(robot,user_input).place
   end
 
-  def test_REPORT_method
+  def test_REPORT_method_when_PLACEd
     robot = Robot.new
     user_input = DummyUserInput.new('PLACE')
     ExecuteUserCommands.new(robot,user_input).place
     assert_equal [2,2,'SOUTH'] , ExecuteUserCommands.new(robot,user_input).report
+  end
+
+  def test_REPORT_method_when_NOT_PLACEd
+    robot = Robot.new
+    user_input = DummyUserInput.new('PLACE')
+    assert_equal 'First you need to place the Robot on the board! :)' , ExecuteUserCommands.new(robot,user_input).report
+  end
+
+  def test_MOVE_method_when_PLACEd
+    robot = Robot.new
+    user_input = DummyUserInput.new('something')
+    assert_equal 1 , ExecuteUserCommands.new(robot,user_input).move
   end
 
 end
