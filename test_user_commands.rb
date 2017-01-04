@@ -48,8 +48,8 @@ class TestExecuteUserCommands < Minitest::Test
   def test_REPORT_method
     robot = Robot.new
     user_input = DummyUserInput.new('PLACE')
-    command = ExecuteUserCommands.new(robot,user_input).place
-    assert_equal [2,2,'SOUTH'] , command.report
+    ExecuteUserCommands.new(robot,user_input).place
+    assert_equal [2,2,'SOUTH'] , ExecuteUserCommands.new(robot,user_input).report
   end
 
 end

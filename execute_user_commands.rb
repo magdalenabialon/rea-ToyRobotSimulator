@@ -34,6 +34,10 @@ class ExecuteUserCommands
     @toy.place(x,y,face)
   end
 
+  def report
+    @toy.report
+  end
+
 end
 
 
