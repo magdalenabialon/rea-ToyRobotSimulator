@@ -11,6 +11,7 @@ class ExecuteUserCommands
 
   def perform_commands
     greet
+    @command = gets.chomp.upcase
   end
 
   # private
