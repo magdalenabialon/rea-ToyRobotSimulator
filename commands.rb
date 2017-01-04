@@ -13,7 +13,6 @@ class Robot
       @x = x
       @y = y
       @face = face.gsub(/\s+/ , '').upcase
-      # [@x,@y,@face]
     else
       p print_fail_board_range
     end
@@ -47,6 +46,20 @@ class Robot
     end
   end
 
+  def right
+    return print_fail_message_when_not_placed unless @face
+    case @face
+    when 'NORTH'
+      @face = 'EAST'
+    when 'SOUTH'
+      @face = 'WEST'
+    when 'WEST'
+      @face = 'NORTH'
+    when 'EAST'
+      @face = 'SOUTH'
+    end
+  end
+
   def report
     return print_fail_message_when_not_placed unless @face
     p [@x,@y,@face]
@@ -61,7 +74,6 @@ class Robot
   def check_valid_face(face)
     face = face.upcase
     face =~ /\s*north\s*/i || face =~ /\s*south\s*/i || face =~ /\s*east\s*/i || face =~ /\s*west\s*/i
-    # ['NORTH','SOUTH','EAST','WEST'].include?(face)
   end
 
   def print_fail_board_range
@@ -73,7 +85,7 @@ class Robot
   end
 
   def print_fail_message_when_not_placed
-    'First you need to place the Robot on the board! :)'
+    p 'First you need to place the Robot on the board! :)'
   end
 
 end
@@ -83,17 +95,17 @@ end
 
 
 
-robot = Robot.new
+# robot = Robot.new
 
 # p robot.place(0,0,'NORTH')
 # robot.place(10,0,'NORTH')
 # robot.place(1,1,'sth')
 # robot.place(1,1,'EAST')
-robot.place(0,0,'SOUTH')
+# robot.place(0,0,'SOUTH')
 # robot.place(5,5,'EAST')
 # robot.place(4,4,' east ')
 # p robot.move
 
 # p robot.left
-p robot.print_fail_message_when_not_placed
+# p robot.print_fail_message_when_not_placed
 

@@ -59,6 +59,19 @@ class TestCommands < Minitest::Test
     assert_equal 'SOUTH' , @@robot.left
   end
 
+  def test_RIGHT_command
+    @@robot.place(1,1,'WEST')
+    assert_equal 'NORTH' , @@robot.right
+  end
+
+  def test_when_multiple_commands_were_called
+    @@robot.place(2,3,'EAST')
+    @@robot.move
+    @@robot.left
+    @@robot.move
+    assert_equal [3,4,'NORTH'] , @@robot.report
+  end
+
 end
 
 
@@ -68,8 +81,17 @@ class TestCommandsWhenRobotNotPlaced < Minitest::Test
   @@robot = Robot.new
 
   def test_MOVE_command_when_notPLACEd
-    assert_equal 'First you need to place the Robot on the board! :)', @@robot.move
+    assert_equal 'First you need to place the Robot on the board! :)' , @@robot.move
   end
+
+  def test_REPORT_command_when_not_PLACED
+    assert_equal 'First you need to place the Robot on the board! :)' , @@robot.report
+  end
+
+  def test_LEFT_command_when_not_PLACED
+    assert_equal 'First you need to place the Robot on the board! :)' , @@robot.left
+  end
+
 
 end
 
