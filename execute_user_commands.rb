@@ -79,17 +79,17 @@ end
 # to run in bash: ruby execute_user_commands.rb
 
 
-# robot = Robot.new
-# user_input = UserInput.new
-# command = ExecuteUserCommands.new(robot,user_input)
+robot = Robot.new
+user_input = UserInput.new
+command = ExecuteUserCommands.new(robot,user_input)
 
 
 # # command.greet
 # # p command.get_user_input
 
-# command.place
-# command.move
-# command.report
+command.place
+command.move
+command.report
 # command.left
 # command.report
 # command.move
@@ -98,4 +98,4 @@ end
 
 
 
-# command.perform_commands
+command.perform_commands
