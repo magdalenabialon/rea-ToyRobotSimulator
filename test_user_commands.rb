@@ -15,6 +15,7 @@ class TestExecuteUserCommands < Minitest::Test
     end
   end
 
+
   def test_execute_user_commands_first_simple_test
     robot = Robot.new
     user_input = DummyUserInput.new('PLACE')
@@ -61,7 +62,29 @@ class TestExecuteUserCommands < Minitest::Test
   def test_MOVE_method_when_PLACEd
     robot = Robot.new
     user_input = DummyUserInput.new('something')
+    ExecuteUserCommands.new(robot,user_input).place
     assert_equal 1 , ExecuteUserCommands.new(robot,user_input).move
   end
 
+  def test_MOVE_method_when_NOT_PLACEd
+    robot = Robot.new
+    user_input = DummyUserInput.new('sth')
+    assert_equal 'First you need to place the Robot on the board! :)' , ExecuteUserCommands.new(robot,user_input).move
+  end
+
+  def test_LEFT_method_when_PLACEd
+    robot = Robot.new
+    user_input = DummyUserInput.new('sth')
+    ExecuteUserCommands.new(robot,user_input).place
+    assert_equal 'EAST' , ExecuteUserCommands.new(robot,user_input).left
+  end
+
+  def test_RIGHT_method_when_PLACEd
+    robot = Robot.new
+    user_input = DummyUserInput.new('sth')
+    ExecuteUserCommands.new(robot,user_input).place
+    assert_equal 'WEST' , ExecuteUserCommands.new(robot,user_input).right
+  end
+
 end
+

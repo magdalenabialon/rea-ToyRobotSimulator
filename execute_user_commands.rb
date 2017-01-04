@@ -41,6 +41,18 @@ class ExecuteUserCommands
     @toy.report
   end
 
+  def move
+    @toy.move
+  end
+
+  def left
+    @toy.left
+  end
+
+  def right
+    @toy.right
+  end
+
 end
 
 
@@ -63,8 +75,18 @@ end
 # user_input = UserInput.new
 # command = ExecuteUserCommands.new(robot,user_input)
 
-# command.greet
-# p command.get_user_input
+# # command.greet
+# # p command.get_user_input
+
 # command.place
+# command.move
 # command.report
+# command.left
+# command.report
+# command.move
+# command.right
+# command.report
+
+
+
 # command.perform_commands
