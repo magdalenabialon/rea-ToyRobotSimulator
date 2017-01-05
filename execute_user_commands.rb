@@ -29,7 +29,7 @@ class ExecuteUserCommands
           p 'I am afraid it is not a valid command.. -_-'
       end
     ask_and_save_user_input
-    # break  # breaks app -> ONLY FOR TESTING! PERFORM_COMMANDS_method -> without it endless loop in tests -_-
+    ## break  # breaks app -> ONLY FOR TESTING! PERFORM_COMMANDS_method -> without it endless loop in tests -_-
     end
 
   end
