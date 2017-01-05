@@ -9,10 +9,10 @@ class Robot
   end
   
   def place(x,y,face)
-    if  check_if_on_board(x,y) && check_valid_face(face)
+    if check_if_on_board(x,y) && check_valid_face(face)
       @x = x
       @y = y
-      @face = face.gsub(/\s+/ , '').upcase
+      @face = face_no_spaces_and_to_upcase(face)          
     else
       p print_fail_board_range
     end
@@ -71,9 +71,13 @@ class Robot
     (0..@board_size_X) === x && (0..@board_size_Y) === y
   end
 
+  def face_no_spaces_and_to_upcase(face)
+    face.gsub(/\s+/ , '').upcase
+  end
+
   def check_valid_face(face)
-    face = face.upcase
-    face =~ /\s*north\s*/i || face =~ /\s*south\s*/i || face =~ /\s*east\s*/i || face =~ /\s*west\s*/i    # NWESOUTH - SORT THAT OUT
+    valid_face = face_no_spaces_and_to_upcase(face)
+    valid_face.eql?('NORTH') || valid_face.eql?('SOUTH') || valid_face.eql?('EAST') || valid_face.eql?('WEST')    
   end
 
   def print_fail_board_range

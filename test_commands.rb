@@ -40,8 +40,8 @@ class TestCommands < Minitest::Test
     assert_equal 'The toy robot must not fall off the table during movement' , @@robot.move
   end
 
-  def test_MOVE_command_when_face_lowercase_or_with_space
-    @@robot.place(1,1,' east  ')
+  def test_MOVE_command_when_face_lowercase_or_with_spaces
+    @@robot.place(1,1,' east ')
     assert_equal 2 , @@robot.move
   end
 
@@ -72,6 +72,10 @@ class TestCommands < Minitest::Test
     @@robot.left
     @@robot.move
     assert_equal [3,4,'NORTH'] , @@robot.report
+  end
+
+  def test_PLACE_command_when_face_lowercase_or_with_space_or_any_other_caracter
+    assert_equal "X and Y must be in 0 to 5 (for X) and 5 (for Y) range and face must be north south east or west" , @@robot.place(1,1,'b east1 9N $')
   end
 
 end
