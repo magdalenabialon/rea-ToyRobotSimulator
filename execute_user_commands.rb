@@ -1,7 +1,6 @@
 require_relative 'robot_commands'
 
 
-
 class ExecuteUserCommands
 
   def initialize(toy,user_input)
@@ -30,11 +29,12 @@ class ExecuteUserCommands
           p 'I am afraid it is not a valid command.. -_-'
       end
     ask_and_save_user_input
+    # break  # for teting PERFORM_COMMANDS_method  without it endless loop -_-
     end
 
   end
 
-  # private
+  private
 
   def greet
     p 'Welcome to Toy Robot Simulator'
@@ -87,9 +87,12 @@ end
 
 class UserInput
   def save_command
-    @command = gets.chomp.upcase   #shouldn't be deleting the space here as place arguments are provided with space - need to extract each of them
+    @command = gets.chomp.upcase   #shouldn't be deleting the spaces here as place arguments are provided with space - need to extract each of them
   end
 end
+
+
+
 
 
 
@@ -101,8 +104,10 @@ end
 robot = Robot.new
 user_input = UserInput.new
 command = ExecuteUserCommands.new(robot,user_input)
+command.perform_commands
 
-# THOSE ARE PRIVATE - > need to comment out  * private *  in ExecuteUserCommands class to test them out 
+
+# THOSE ARE PRIVATE - > need to comment out  * private *  in ExecuteUserCommands class to test them out :)
 # # command.greet
 # # p command.get_user_input
 # command.place
@@ -113,5 +118,3 @@ command = ExecuteUserCommands.new(robot,user_input)
 # command.move
 # command.right
 # command.report
-
-command.perform_commands

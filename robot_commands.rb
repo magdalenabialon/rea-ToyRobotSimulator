@@ -19,7 +19,7 @@ class Robot
   end
 
   def move
-    return 'First you need to place the Robot on the board! :)' unless @face
+    return print_fail_message_when_not_placed unless @face
     case @face
     when 'NORTH'
       @y <= @board_size_Y - 1 ? @y += 1 : print_fail_message_if_could_fall_out
