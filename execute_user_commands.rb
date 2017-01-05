@@ -29,7 +29,7 @@ class ExecuteUserCommands
           p 'I am afraid it is not a valid command.. -_-'
       end
     ask_and_save_user_input
-    # break  # for teting PERFORM_COMMANDS_method  without it endless loop -_-
+    # break  # breaks app -> ONLY FOR TESTING! PERFORM_COMMANDS_method -> without it endless loop in tests -_-
     end
 
   end
@@ -101,10 +101,10 @@ end
 # SOME TEST DATA/COMMANDS 
 # to run in bash: ruby execute_user_commands.rb
 
-robot = Robot.new
-user_input = UserInput.new
-command = ExecuteUserCommands.new(robot,user_input)
-command.perform_commands
+# robot = Robot.new
+# user_input = UserInput.new
+# command = ExecuteUserCommands.new(robot,user_input)
+# command.perform_commands
 
 
 # THOSE ARE PRIVATE - > need to comment out  * private *  in ExecuteUserCommands class to test them out :)

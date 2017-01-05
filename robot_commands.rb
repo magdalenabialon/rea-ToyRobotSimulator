@@ -73,7 +73,7 @@ class Robot
 
   def check_valid_face(face)
     face = face.upcase
-    face =~ /\s*north\s*/i || face =~ /\s*south\s*/i || face =~ /\s*east\s*/i || face =~ /\s*west\s*/i
+    face =~ /\s*north\s*/i || face =~ /\s*south\s*/i || face =~ /\s*east\s*/i || face =~ /\s*west\s*/i    # NWESOUTH - SORT THAT OUT
   end
 
   def print_fail_board_range
