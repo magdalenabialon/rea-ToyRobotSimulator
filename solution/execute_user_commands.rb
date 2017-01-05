@@ -34,7 +34,7 @@ class ExecuteUserCommands
 
   end
 
-  private
+  # private
 
   def greet
     p 'Welcome to Toy Robot Simulator'
@@ -101,13 +101,14 @@ end
 # SOME TEST DATA/COMMANDS 
 # to run in bash: ruby execute_user_commands.rb
 
-# robot = Robot.new
+# board = Board.new
+# robot = Robot.new(board)
 # user_input = UserInput.new
 # command = ExecuteUserCommands.new(robot,user_input)
 # command.perform_commands
 
 
-# THOSE ARE PRIVATE - > need to comment out  * private *  in ExecuteUserCommands class to test them out from this file:)
+# THOSE ARE PRIVATE - > need to comment  * private *  in ExecuteUserCommands class to test them out from this file:)
 # # command.greet
 # # p command.get_user_input
 # command.place

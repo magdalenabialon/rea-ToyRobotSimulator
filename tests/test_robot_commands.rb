@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 # require_relative 'board'
-require_relative 'robot_commands'
+require_relative '../solution/robot_commands.rb'
 
 
 

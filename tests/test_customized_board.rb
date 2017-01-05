@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 # require_relative 'robot_commands'
-require_relative 'execute_user_commands'
+require_relative '../solution/execute_user_commands.rb'
 
 
 # for testing purposes needed to change methods from private to public
