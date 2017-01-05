@@ -107,7 +107,7 @@ end
 # command.perform_commands
 
 
-# THOSE ARE PRIVATE - > need to comment out  * private *  in ExecuteUserCommands class to test them out :)
+# THOSE ARE PRIVATE - > need to comment out  * private *  in ExecuteUserCommands class to test them out from this file:)
 # # command.greet
 # # p command.get_user_input
 # command.place

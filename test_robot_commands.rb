@@ -1,11 +1,13 @@
 require 'minitest/autorun'
+# require_relative 'board'
 require_relative 'robot_commands'
 
 
 
 class TestCommands < Minitest::Test
 
-  @@robot = Robot.new
+  board = Board.new
+  @@robot = Robot.new(board)
 
 
   def test_PLACE_command_returns_simple_output
@@ -83,8 +85,9 @@ end
 
 
 class TestCommandsWhenRobotNotPlaced < Minitest::Test
-
-  @@robot = Robot.new
+  
+  board = Board.new
+  @@robot = Robot.new(board)
 
   def test_MOVE_command_when_notPLACEd
     assert_equal 'First you need to place the Robot on the board! :)' , @@robot.move
@@ -104,7 +107,8 @@ end
 
 class TestCommandsWhenCustomizedBoard < Minitest::Test
 
-  @@robot = Robot.new(9,9)
+  board = Board.new(9,9)
+  @@robot = Robot.new(board)
 
   def test_MOVE_command_when_customized_board
     assert_equal 'NORTH' , @@robot.place(8,7,'NORTH')

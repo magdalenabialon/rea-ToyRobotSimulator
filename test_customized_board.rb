@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'robot_commands'
+# require_relative 'robot_commands'
 require_relative 'execute_user_commands'
 
 
@@ -29,13 +29,15 @@ class TestExecuteCommandsWhenCustomizedBoard < Minitest::Test
 
 
   def test_PLACE_command_when_customized_board
-    robot = Robot.new(9,10)
+    board = Board.new(9,10)
+    robot = Robot.new(board)
     dummy_user_input = DummyUserInput.new('PLACE')
     assert_equal 'EAST' , ExecuteUserCommands.new(robot, dummy_user_input).place
   end
 
   def test_PLACE_command_when_customized_board_not_valid_position
-    robot = Robot.new(6,7)
+    board = Board.new(6,7)
+    robot = Robot.new(board)
     dummy_user_input = DummyUserInput.new('PLACE')
     assert_equal "X and Y must be in 0 to 6 (for X) and 7 (for Y) range and face must be north south east or west" , ExecuteUserCommands.new(robot,dummy_user_input).place
   end
