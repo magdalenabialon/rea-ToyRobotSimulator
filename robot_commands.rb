@@ -94,8 +94,6 @@ end
 
 
 
-
-
 # SOME TEST DATA/COMMANDS 
 # to run in bash: ruby robot_commands.rb
 
