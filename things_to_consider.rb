@@ -1,0 +1,1 @@
+# robot = Robot.new(board).perform_commands(command_name)
