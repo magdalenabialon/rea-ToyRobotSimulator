@@ -13,17 +13,17 @@ class ExecuteUserCommands
     @command = get_user_input
 
     loop do
-      break if @command =~ /exit/i
+      break if @command =~ /^\s*EXIT\s*$/
       case @command
-        when /\s*place\s*/i
+        when /^\s*PLACE\s*$/
           place
-        when /\s*report\s*/i
+        when /^\s*REPORT\s*$/
           report
-        when /\s*move\s*/i
+        when /^\s*MOVE\s*$/
           move
-        when /\s*left\s*/i
+        when /^\s*LEFT\s*$/
           left
-        when /\s*right\s*/i
+        when /^\s*RIGHT\s*$/
           right
         else 
           p 'I am afraid it is not a valid command.. -_-'

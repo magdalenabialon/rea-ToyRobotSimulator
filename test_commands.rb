@@ -66,8 +66,8 @@ class TestCommands < Minitest::Test
     assert_equal 'NORTH' , @@robot.right
   end
 
-  def test_when_multiple_commands_were_called
-    @@robot.place(2,3,'EAST')
+  def test_when_multiple_commands_were_called_and_face_lower_upercase_with_spaces
+    @@robot.place(2,3,'EasT ')
     @@robot.move
     @@robot.left
     @@robot.move

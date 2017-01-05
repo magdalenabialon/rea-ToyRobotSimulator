@@ -12,7 +12,7 @@ class Robot
     if check_if_on_board(x,y) && check_valid_face(face)
       @x = x
       @y = y
-      @face = face_no_spaces_and_to_upcase(face)          
+      @face = upcase_face_and_remove_spaces(face)          
     else
       p print_fail_board_range
     end
@@ -71,12 +71,12 @@ class Robot
     (0..@board_size_X) === x && (0..@board_size_Y) === y
   end
 
-  def face_no_spaces_and_to_upcase(face)
+  def upcase_face_and_remove_spaces(face)
     face.gsub(/\s+/ , '').upcase
   end
 
   def check_valid_face(face)
-    valid_face = face_no_spaces_and_to_upcase(face)
+    face != nil ? valid_face = upcase_face_and_remove_spaces(face) : print_fail_board_range
     valid_face.eql?('NORTH') || valid_face.eql?('SOUTH') || valid_face.eql?('EAST') || valid_face.eql?('WEST')    
   end
 
