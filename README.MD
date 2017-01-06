@@ -24,7 +24,7 @@ Here you can get the latest Ruby version:  https://www.ruby-lang.org/en/download
 <li>type in bash:  ruby test_customized_board.rb</li>
 
 
-![Image of Toy Robots](ToyRobot.jpg)
+![Image of Toy Robots](picToyRobot.jpg)
 
 
 ## APPROACH TAKEN:
@@ -52,12 +52,12 @@ Here you can get the latest Ruby version:  https://www.ruby-lang.org/en/download
      First test checks if that method works for the _exit_ command.
      Second test (that is actually commented out) works when _loop do_ has break in it but then expected value is equal to _nil_.
   9. User commands and arguments (x,y,face) validation was improved. 
-     I allowed users to use either upcase or lowercase commands and forgiven them using spaces :)
+     I allowed users to use either upcase or lowercase commands and forgiven them using spaces 😉
      Yet, that can be changed in:
      - robot_commands file _upcase_face_and_remove_spaces(face)_ method (gsub(/\s+/ , '') and/or upcase
      - execute_user_commands file, class UserInput and _save_command_ method (upcase) 
         and  _perform_commands_ method and regular expression _/PLACE\s[0-9],[0-9],(NORTH|SOUTH|WEST|EAST)/_
-     ![Image of Toy Robots](upcase_commands.png)
+     ![Image of Toy Robots](pic_upcase_commands.png)
 
   10. In the end I thought that it's more logical to create separate Board class for customizing it's size rather than 
       providing arguments in the Robot object.
