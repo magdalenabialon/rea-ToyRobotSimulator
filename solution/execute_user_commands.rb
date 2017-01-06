@@ -15,7 +15,7 @@ class ExecuteUserCommands
     loop do
       break if @command =~ /^\s*EXIT\s*$/
       case @command
-        when /\s*PLACE\s*[0-9]\s*[0-9]\s*NORTH| SOUTH| WEST| EAST/
+        when /\s*PLACE\s*[0-9],[0-9],(NORTH|SOUTH|WEST|EAST)\s*/
           place
         when /^\s*REPORT\s*$/
           report
@@ -38,7 +38,7 @@ class ExecuteUserCommands
 
   def greet
     p 'Welcome to Toy Robot Simulator'
-    p 'valid commands:  place x y face ||  move  ||  left  ||  right  ||  report'
+    p 'VALID COMMANDS:  PLACE X,Y,FACE  ||  MOVE  ||  LEFT  ||  RIGHT  ||  REPORT'
     p 'To exit simply type exit :)'
     p 'Please start with the place command and x y face arguments'
   end
@@ -48,7 +48,7 @@ class ExecuteUserCommands
   end
 
   def ask_for_user_input
-    p 'Please type the command: place x y face  ||  move  ||  left  ||  right  ||  report'
+    p 'Please type the command: PLACE X,Y,FACE  ||  MOVE  ||  LEFT  ||  RIGHT  ||  REPORT'
   end
 
   def ask_and_save_user_input
@@ -57,7 +57,7 @@ class ExecuteUserCommands
   end
   
   def place
-    arguments = @command.gsub('PLACE', '').split(' ')
+    arguments = @command.gsub('PLACE', '').split(',')
     x = arguments[0].to_i
     y = arguments[1].to_i
     face = arguments[2]

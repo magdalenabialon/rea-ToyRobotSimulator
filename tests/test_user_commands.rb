@@ -64,7 +64,7 @@ class TestExecuteUserCommands < Minitest::Test
     robot = Robot.new(board)
     dummy_user_input = DummyUserInput.new('PLACE')
     ExecuteUserCommands.new(robot,dummy_user_input).place   
-    assert_equal [2,2,'SOUTH'] , ExecuteUserCommands.new(robot,dummy_user_input).report
+    assert_equal '2,2,SOUTH' , ExecuteUserCommands.new(robot,dummy_user_input).report
   end
 
   def test_REPORT_method_when_NOT_PLACEd
@@ -112,7 +112,7 @@ class TestExecuteUserCommands < Minitest::Test
     ExecuteUserCommands.new(robot,dummy_user_input).place   
     ExecuteUserCommands.new(robot,dummy_user_input).right   
     ExecuteUserCommands.new(robot,dummy_user_input).move    
-    assert_equal [1,2,'WEST'] , ExecuteUserCommands.new(robot,dummy_user_input).report
+    assert_equal '1,2,WEST' , ExecuteUserCommands.new(robot,dummy_user_input).report
   end
 
   def test_PERFORM_COMMANDS_method_to_EXIT_simulator

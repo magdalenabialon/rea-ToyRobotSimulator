@@ -62,7 +62,7 @@ class Robot
 
   def report
     return print_fail_message_when_not_placed unless @face
-    p [@x,@y,@face]
+    p [@x,@y,@face].join(',')
   end
 
   private
