@@ -49,10 +49,10 @@ class TestExecuteUserCommands < Minitest::Test
     board = Board.new
     robot = Robot.new(board)
     dummy_user_input = DummyUserInput.new('PLACE')
-    assert_equal 'Please start with place command' , ExecuteUserCommands.new(robot,dummy_user_input).greet
+    assert_equal 'Please start with the place command and x y face arguments' , ExecuteUserCommands.new(robot,dummy_user_input).greet
   end
 
-  def test_PLACE_method                              #TODO ADD TEST PLACE METHOD FOR CUSTOMIZED BOARD
+  def test_PLACE_method                              
     board = Board.new
     robot = Robot.new(board)
     dummy_user_input = DummyUserInput.new('PLACE')
