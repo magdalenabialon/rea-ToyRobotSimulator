@@ -15,7 +15,7 @@ class ExecuteUserCommands
     loop do
       break if @command =~ /^\s*EXIT\s*$/
       case @command
-        when /\s*PLACE\s*[0-9],[0-9],(NORTH|SOUTH|WEST|EAST)\s*/
+        when /\s*PLACE\s*[0-9]\s*,\s*[0-9]\s*,\s*(NORTH|SOUTH|WEST|EAST)\s*/
           place
         when /^\s*REPORT\s*$/
           report
@@ -39,6 +39,7 @@ class ExecuteUserCommands
   def greet
     p 'Welcome to Toy Robot Simulator'
     p 'VALID COMMANDS:  PLACE X,Y,FACE  ||  MOVE  ||  LEFT  ||  RIGHT  ||  REPORT'
+    p ' /remember to separate place arguments with commas/ '
     p 'To exit simply type exit :)'
     p 'Please start with the place command and x y face arguments'
   end
@@ -101,11 +102,11 @@ end
 # SOME TEST DATA/COMMANDS 
 # to run in bash: ruby execute_user_commands.rb
 
-board = Board.new
-robot = Robot.new(board)
-user_input = UserInput.new
-command = ExecuteUserCommands.new(robot,user_input)
-command.perform_commands
+# board = Board.new
+# robot = Robot.new(board)
+# user_input = UserInput.new
+# command = ExecuteUserCommands.new(robot,user_input)
+# command.perform_commands
 
 
 # THOSE ARE PRIVATE - > need to comment  * private *  in ExecuteUserCommands class to test them out from this file :)

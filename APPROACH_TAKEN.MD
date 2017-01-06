@@ -51,7 +51,14 @@ Here you can get the latest Ruby version:  https://www.ruby-lang.org/en/download
   8. I wasn't sure how to test place_command method from the ExecuteUserCommands class. 
      First test checks if that method works for the _exit_ command.
      Second test (that is actually commented out) works when _loop do_ has break in it but then expected value is equal to _nil_.
-  9. User commands and arguments (x,y, face) validation was improved.
+  9. User commands and arguments (x,y,face) validation was improved. 
+     I allowed users to use either upcase or lowercase commands and forgiven them using spaces :)
+     Yet, that can be changed in:
+     - robot_commands file _upcase_face_and_remove_spaces(face)_ method (gsub(/\s+/ , '') and/or upcase
+     - execute_user_commands file, class UserInput and _save_command_ method (upcase) 
+        and  _perform_commands_ method and regular expression _/PLACE\s[0-9],[0-9],(NORTH|SOUTH|WEST|EAST)/_
+     ![Image of Toy Robots](upcase_commands.png)
+
   10. In the end I thought that it's more logical to create separate Board class for customizing it's size rather than 
       providing arguments in the Robot object.
   
@@ -72,7 +79,7 @@ Here you can get the latest Ruby version:  https://www.ruby-lang.org/en/download
 ## THIGNS TO CONSIDER and what I would like to have done differently
 Once I have solved this challenge, I see some of its limitations😓. 
 As mentioned, if the problem grows and more directions/movements would be added this solution is not ideal.
-If I had a little bit more time, I would probably think about changing case statements using polymorphism?
+If I had a little bit more time, I would probably think about changing case statements and think about polymorphism instead?
 I would have probably redesign Robot class. Perform_commands method could take an argument - command object.
 Some of the ideas can be find in things_to_consider.rb file.
 
