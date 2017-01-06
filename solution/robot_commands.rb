@@ -103,6 +103,7 @@ end
 
 # board = Board.new
 # robot = Robot.new(board)
+
 # p robot.place(0,0,'NORTH')
 # robot.place(10,0,'NORTH')
 # robot.place(1,1,'sth')
@@ -113,7 +114,7 @@ end
 # p robot.move
 # p robot.right
 # p robot.left
-# p robot.report
+# robot.report
 # p robot.print_fail_message_when_not_placed
 
 

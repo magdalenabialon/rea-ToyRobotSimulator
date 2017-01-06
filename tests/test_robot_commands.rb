@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-# require_relative 'board'
+# require_relative '../solution/board.rb'
 require_relative '../solution/robot_commands.rb'
 
 

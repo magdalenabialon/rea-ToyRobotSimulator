@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-# require_relative 'robot_commands'
+# require_relative '../solution/robot_commands.rb'
 require_relative '../solution/execute_user_commands.rb'
 
 
@@ -122,7 +122,7 @@ class TestExecuteUserCommands < Minitest::Test
     assert_equal nil , ExecuteUserCommands.new(robot,dummy_user_input).perform_commands
   end
 
-  # def test_PERFORM_COMMANDS_method     # ->    *** not really sure how to test it -_- ***   -> when * break * uncommented in loop do that gives nil
+  # def test_PERFORM_COMMANDS_method     # ->    *** not really sure how to test it -_- ***   -> when * break * uncommented in * loop *  that gives nil
     # board = Board.new
     # robot = Robot.new(board)
   #   dummy_user_input = DummyUserInput.new('PLACE')
