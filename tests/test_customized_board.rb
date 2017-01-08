@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-# require_relative '../solution/robot_commands.rb'
+# require_relative '../solution/robot_movements.rb'
 require_relative '../solution/execute_user_commands.rb'
 
 
@@ -28,14 +28,14 @@ class TestExecuteCommandsWhenCustomizedBoard < Minitest::Test
   end
 
 
-  def test_PLACE_command_when_customized_board
+  def test_PLACE_method_when_customized_board
     board = Board.new(9,10)
     robot = Robot.new(board)
     dummy_user_input = DummyUserInput.new('PLACE')
     assert_equal 'EAST' , ExecuteUserCommands.new(robot, dummy_user_input).place
   end
 
-  def test_PLACE_command_when_customized_board_not_valid_position
+  def test_PLACE_method_when_customized_board_not_valid_position
     board = Board.new(6,7)
     robot = Robot.new(board)
     dummy_user_input = DummyUserInput.new('PLACE')

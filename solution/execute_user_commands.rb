@@ -1,4 +1,5 @@
-require_relative 'robot_commands'
+require_relative 'robot_movements'
+
 
 
 class ExecuteUserCommands
@@ -25,7 +26,7 @@ class ExecuteUserCommands
           left
         when /^\s*RIGHT\s*$/
           right
-        else 
+        else
           p 'I am afraid it is not a valid command.. -_-'
       end
     ask_and_save_user_input
@@ -56,7 +57,7 @@ class ExecuteUserCommands
     ask_for_user_input
     @command = get_user_input
   end
-  
+
   def place
     arguments = @command.gsub('PLACE', '').split(',')
     x = arguments[0].to_i
@@ -99,7 +100,7 @@ end
 
 
 
-# SOME TEST DATA/COMMANDS 
+# SOME TEST DATA/COMMANDS
 # to run in bash: ruby execute_user_commands.rb
 
 # board = Board.new

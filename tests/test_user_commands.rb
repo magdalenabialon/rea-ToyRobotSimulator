@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-# require_relative '../solution/robot_commands.rb'
+# require_relative '../solution/robot_movements.rb'
 require_relative '../solution/execute_user_commands.rb'
 
 
