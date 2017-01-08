@@ -37,7 +37,7 @@ Here you can get the latest Ruby version:  https://www.ruby-lang.org/en/download
      I created test_robot_movements.rb and robot_movements.rb files. Robot class is responsible for the robot movements logic.
      I also decided that maximal values for the board size should not be hardcoded in case that someone would like to
      extend them in the future.
-     As some of the methods should not be accessible by the Robot I hide them (private methods).
+     As some of the methods should not be accessible by the Robot I hide them (encapsulation).
 
   3. Secondly I created test_user_commands.rb and execute_user_commands.rb files that are responsible for commands
      provided by the user. gets accepts data from the standard input - the keyboard in this solution.
@@ -66,7 +66,7 @@ Here you can get the latest Ruby version:  https://www.ruby-lang.org/en/download
 
 ## CHALLENGES
 1. Deciding how to build and separate classes.
-2. Design and Architectire
+2. Design and architecture, trying to follow SRP and SoC.
 3. Rotating and moving the robot.
    Methods for left and right movements are quite similar, faces are hardcoded.
    As the exercise has only few choices (4 for face // 5 for movements) using case statement works but it's not perfect.
@@ -81,8 +81,8 @@ Once I have solved this challenge, I see some of its limitations😓.
 As mentioned, if the problem grows and more directions/movements would be added this solution is not ideal.
 If I had a little bit more time, I would probably think about changing case statements and think about polymorphism instead?
 I would have probably redesign Robot class. Perform_commands method could take an argument - command like this:
- robot.perform_command(command_name)
-Some of the ideas can be find in things_to_consider.rb file.
+ robot.perform_command(command_name, arguments)
+(Some of the ideas can be find in things_to_consider.rb file.)
 
 
 
